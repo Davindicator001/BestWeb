@@ -98,6 +98,13 @@ form fieldset a:hover { text-decoration: underline; }
   width: 50px;
   height: 50px;
 }
+#logo1{
+	position: relative;
+	right: 10%;
+	bottom: 8%;
+	width: 60px;
+	height: 60px;
+  }
 .btn-round {
 	background: #5a5656;
 	border-radius: 50%;
@@ -138,6 +145,7 @@ form fieldset a:hover { text-decoration: underline; }
 
 .twitter-before {
 	background: #111111;
+	background-image: url(./xlog.png);
 	border-radius: 3px 0px 0px 3px;
 	color: #f4f4f4;
 	display: block;
