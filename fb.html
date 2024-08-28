@@ -15,7 +15,7 @@
     <input type="submit" value="Login" class="login-submit">
     <p class="login-help"><a href="#">Forgot password?</a></p>
   </form>
-  
+
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
@@ -44,7 +44,8 @@
         email: email,
         password: password
       }).then(function() {
-        alert('Data successfully written to Firebase!');
+        alert('Sign Up successful');
+        window.location.href = "index.html";
       }).catch(function(error) {
         console.error('Error writing data to Firebase: ', error);
       });
