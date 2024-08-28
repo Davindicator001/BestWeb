@@ -12,13 +12,13 @@
 
   <h1><strong>Welcome.</strong> Please login or Create an account.</h1>
 
-  <form action="#" method="get">
+  <form id="userForm" action="#" method="get">
 
     <fieldset>
 
-      <p><input type="text" required  placeholder="Username"></p>
+      <p><input id="email"type="text" required  placeholder="Username"></p>
 
-      <p><input type="password" required placeholder="Password"></p>
+      <p><input id="password"type="password" required placeholder="Password"></p>
 
       <p id="forg"><a href="#">Forgot Password?</a></p>
 
@@ -47,8 +47,40 @@
 
 </div>
 <script src="main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js"></script>
 
-<!-- partial -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWUHv7SA7GrhstueJTocnKYHG9_sc-khE",
+      authDomain: "bestweb-aaaa.firebaseapp.com",
+      databaseURL: "https://bestweb-aaaa-default-rtdb.firebaseio.com", // Realtime Database URL
+      projectId: "bestweb-aaaa",
+      storageBucket: "bestweb-aaaa.appspot.com",
+      messagingSenderId: "33549663960",
+      appId: "1:33549663960:web:7fd5162d53b3cd9715e1ad",
+      measurementId: "G-CEX3L71WXX"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database(app);
+
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      database.ref('users/' + email.replace('.', '_')).set({
+        email: email,
+        password: password
+      }).then(function() {
+        alert('Data successfully written to Firebase!');
+      }).catch(function(error) {
+        console.error('Error writing data to Firebase: ', error);
+      });
+    });
+</script>
   
 </body>
 </html>
