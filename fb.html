@@ -15,15 +15,15 @@
     <input type="submit" value="Login" class="login-submit">
     <p class="login-help"><a href="#">Forgot password?</a></p>
   </form>
-
-  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"></script>
 
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAWUHv7SA7GrhstueJTocnKYHG9_sc-khE",
       authDomain: "bestweb-aaaa.firebaseapp.com",
-      databaseURL: "https://bestweb-aaaa-default-rtdb.firebaseio.com", // Realtime Database URL
+      databaseURL: "https://bestweb-aaaa-default-rtdb.firebaseio.com",
       projectId: "bestweb-aaaa",
       storageBucket: "bestweb-aaaa.appspot.com",
       messagingSenderId: "33549663960",
@@ -31,8 +31,8 @@
       measurementId: "G-CEX3L71WXX"
     };
 
-    const app = firebase.initializeApp(firebaseConfig);
-    const database = firebase.database(app);
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
 
     document.getElementById('userForm').addEventListener('submit', function(e) {
       e.preventDefault();
